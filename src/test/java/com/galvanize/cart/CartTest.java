@@ -36,6 +36,20 @@ public class CartTest {
     }
 
     @Test
+    public void getTotalPriceForMultipleItems() {
+        //setup
+        Cart testCart = new Cart();
+        Item testItem = new Item("banana", 2.99);
+        testCart.addItem(testItem);
+        testCart.addItem(testItem);
+        double expected = 4.98;
+        //execute
+        double actual = testCart.getTotalPrice();
+        //assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void getItemizedListAfterAddingItems() {
         //setup
         Cart testCart = new Cart();
@@ -51,4 +65,6 @@ public class CartTest {
         //assert
         assertEquals(expected, actual);
     }
+
+
 }
