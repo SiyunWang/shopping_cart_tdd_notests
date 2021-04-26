@@ -21,5 +21,16 @@ public class CartTest {
         assertEquals(expected, actual);
     }
 
-
+    @Test
+    public void getTotalPriceForTheFirstItem() {
+        //setup
+        Cart testCart = new Cart();
+        Item testItem = new Item("banana", 2.99);
+        testCart.addItem(testItem);
+        double expected = 2.99;
+        //execute
+        double actual = testCart.getTotalPrice();
+        //assert
+        assertEquals(expected, actual);
+    }
 }

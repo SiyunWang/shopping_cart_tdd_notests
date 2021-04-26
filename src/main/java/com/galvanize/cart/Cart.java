@@ -12,4 +12,16 @@ public class Cart {
     public ArrayList<Item> getCart() {
         return cart;
     }
+
+    public void addItem(Item newItem) {
+        cart.add(newItem);
+    }
+
+    public double getTotalPrice() {
+        double total = 0;
+        for (Item item: cart) {
+            total += item.getPrice();
+        }
+        return total;
+    }
 }
