@@ -22,7 +22,7 @@ public class Item {
         return this.onSale;
     } 
     
-    public void onSale() {
+    public void toggleSale() {
         this.onSale = !this.onSale;
     }
 }

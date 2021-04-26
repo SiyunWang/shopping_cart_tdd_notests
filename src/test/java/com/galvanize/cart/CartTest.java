@@ -119,7 +119,7 @@ public class CartTest {
         ArrayList<Item> expected = new ArrayList<Item>();
         expected.add(testItem1);
         //execute
-        testItem1.onSale();
+        testItem1.toggleSale();
         ArrayList<Item> actual = testCart.onSaleItems();
         //assert
         assertArrayEquals(expected.toArray(), actual.toArray());
@@ -137,8 +137,23 @@ public class CartTest {
         expected.add(testItem1);
         expected.add(testItem2);
         //execute
-        testItem1.onSale();
-        testItem2.onSale();
+        testItem1.toggleSale();
+        testItem2.toggleSale();
+        ArrayList<Item> actual = testCart.onSaleItems();
+        //assert
+        assertArrayEquals(expected.toArray(), actual.toArray());
+    }
+
+    @Test
+    public void toggleSaleStatusOfItem() {
+        //setup
+        Cart testCart = new Cart();
+        Item testItem1 = new Item("banana", 2.99);
+        testCart.addItem(testItem1);
+        ArrayList<Item> expected = new ArrayList<Item>();
+        //execute
+        testItem1.toggleSale();
+        testItem1.toggleSale();
         ArrayList<Item> actual = testCart.onSaleItems();
         //assert
         assertArrayEquals(expected.toArray(), actual.toArray());
