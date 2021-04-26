@@ -37,4 +37,8 @@ public class Cart {
         }
         return itemsList;
     }
+
+    public int itemQuantities() {
+        return 0;
+    }
 }
