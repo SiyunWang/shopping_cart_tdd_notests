@@ -12,6 +12,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ItemTest {
   @Test
+  public void itemDefaultNotOnSale() {
+    //setup
+    Item testItem = new Item("apple", 1.99);
+    boolean expected = false;
+    //execute
+    boolean actual = testItem.getOnSale();
+    //assert
+    assertEquals(expected, actual);
+  }
+
+  @Test
   public void toggleSaleMethod() {
     //setup
     Item testItem = new Item("apple", 1.99);
