@@ -67,10 +67,25 @@ public class CartTest {
     }
 
     @Test
-    public void getItemQuantities() {
+    public void getItemQuantitiesFromEmptyCart() {
         //setup
         Cart testCart = new Cart();
         int expected = 0;
+        //execute
+        int actual = testCart.itemQuantities();
+        //assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getItemQuantitiesFromCart() {
+        //setup
+        Cart testCart = new Cart(); 
+        Item testItem1 = new Item("banana", 2.99);
+        testCart.addItem(testItem1);
+        Item testItem2 = new Item("apple", 1.99);
+        testCart.addItem(testItem2);
+        int expected = 2;
         //execute
         int actual = testCart.itemQuantities();
         //assert

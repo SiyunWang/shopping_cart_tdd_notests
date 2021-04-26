@@ -39,6 +39,6 @@ public class Cart {
     }
 
     public int itemQuantities() {
-        return 0;
+        return cart.size();
     }
 }
