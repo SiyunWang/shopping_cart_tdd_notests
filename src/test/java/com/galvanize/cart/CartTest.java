@@ -28,9 +28,9 @@ public class CartTest {
         //setup
         Cart testCart = new Cart();
         Item testItem = new Item("banana", 2.99);
-        testCart.addItem(testItem);
         double expected = 2.99;
         //execute
+        testCart.addItem(testItem);
         double actual = testCart.getTotalPrice();
         //assert
         assertEquals(expected, actual);
@@ -50,8 +50,11 @@ public class CartTest {
         assertEquals(expected, actual);
     }
 
+    //test itemizedList with only one item first
+    //test name should allow you to understand it out of context
+
     @Test
-    public void getItemizedListAfterAddingItems() {
+    public void getItemizedListAfterAddingItems() { //givenMultipleItemsItemizedListReturnsItemList
         //setup
         Cart testCart = new Cart();
         Item testItem1 = new Item("banana", 2.99);
@@ -67,6 +70,8 @@ public class CartTest {
         assertEquals(expected, actual);
     }
 
+
+    //looking for string with Bananas: 3, etc
     @Test
     public void getItemQuantitiesFromEmptyCart() {
         //setup
