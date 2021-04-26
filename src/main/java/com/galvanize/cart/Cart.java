@@ -41,4 +41,8 @@ public class Cart {
     public int itemQuantities() {
         return cart.size();
     }
+
+    public ArrayList<Item> onSaleItems() {
+        return new ArrayList<Item>();
+    }
 }

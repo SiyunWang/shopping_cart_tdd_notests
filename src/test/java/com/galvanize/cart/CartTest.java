@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CartTest {
@@ -90,6 +91,21 @@ public class CartTest {
         int actual = testCart.itemQuantities();
         //assert
         assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getOnSaleItemsWhenNoItemsOnSale() {
+        //setup
+        Cart testCart = new Cart();
+        Item testItem1 = new Item("banana", 2.99);
+        testCart.addItem(testItem1);
+        Item testItem2 = new Item("apple", 1.99);
+        testCart.addItem(testItem2);
+        ArrayList<Item> expected = new ArrayList<Item>();
+        //execute
+        ArrayList<Item> actual = testCart.onSaleItems();
+        //assert
+        assertArrayEquals(expected.toArray(), actual.toArray());
     }
 
 }
