@@ -1,6 +1,8 @@
 package com.galvanize.cart;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class Cart {
     private ArrayList<Item> cart = new ArrayList<Item>();
@@ -38,8 +40,24 @@ public class Cart {
         return itemsList;
     }
 
-    public int itemQuantities() {
-        return cart.size();
+    public String itemQuantities() {
+        String quantities = "";
+        LinkedHashMap<Item, Integer> itemCounts = new LinkedHashMap<>();
+        for (Item item: cart) {
+            if (itemCounts.containsKey(item)) {
+                itemCounts.put(item, itemCounts.get(item) + 1);
+            } else {
+                itemCounts.put(item, 1);
+            }
+        }
+
+        for (Item item: itemCounts.keySet()) {
+            quantities += item.getName() + ": " + itemCounts.get(item) + ", ";
+        }
+        if (!quantities.equals("")) {
+            return quantities.substring(0, quantities.length() - 2);
+        }
+        return quantities;
     }
 
     public ArrayList<Item> onSaleItems() {

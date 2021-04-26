@@ -76,9 +76,9 @@ public class CartTest {
     public void getItemQuantitiesFromEmptyCart() {
         //setup
         Cart testCart = new Cart();
-        int expected = 0;
+        String expected = "";
         //execute
-        int actual = testCart.itemQuantities();
+        String actual = testCart.itemQuantities();
         //assert
         assertEquals(expected, actual);
     }
@@ -86,14 +86,28 @@ public class CartTest {
     @Test
     public void getItemQuantitiesFromCart() {
         //setup
-        Cart testCart = new Cart(); 
+        Cart testCart = new Cart();
         Item testItem1 = new Item("banana", 2.99);
-        testCart.addItem(testItem1);
         Item testItem2 = new Item("apple", 1.99);
-        testCart.addItem(testItem2);
-        int expected = 2;
+        String expected = "banana: 1, apple: 1";
         //execute
-        int actual = testCart.itemQuantities();
+        testCart.addItem(testItem1);
+        testCart.addItem(testItem2);
+        String actual = testCart.itemQuantities();
+        //assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getItemQuantitiesFromCartWithDuplicatedItems() {
+        //setup
+        Cart testCart = new Cart();
+        Item testItem1 = new Item("banana", 2.99);
+        String expected = "banana: 2";
+        //execute
+        testCart.addItem(testItem1);
+        testCart.addItem(testItem1);
+        String actual = testCart.itemQuantities();
         //assert
         assertEquals(expected, actual);
     }
