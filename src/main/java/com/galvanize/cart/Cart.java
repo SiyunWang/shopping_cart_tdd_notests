@@ -24,4 +24,17 @@ public class Cart {
         }
         return total;
     }
+
+    public String itemizedList() {
+        String itemsList = "";
+        for (int i = 0; i < cart.size(); i++) {
+            Item item = cart.get(i);
+            if (i == cart.size() - 1) {
+                itemsList += item.getName() + ": " + item.getPrice();
+            } else {
+                itemsList += item.getName() + ": " + item.getPrice() + ", ";
+            }
+        }
+        return itemsList;
+    }
 }
