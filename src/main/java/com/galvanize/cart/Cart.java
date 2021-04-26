@@ -43,6 +43,14 @@ public class Cart {
     }
 
     public ArrayList<Item> onSaleItems() {
-        return new ArrayList<Item>();
+        ArrayList<Item> saleItems = new ArrayList<Item>();
+
+        for (Item item : cart) {
+            if (item.getOnSale()) {
+                saleItems.add(item);
+            }
+        }
+
+        return saleItems;
     }
 }
