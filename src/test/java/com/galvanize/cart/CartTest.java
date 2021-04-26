@@ -41,10 +41,10 @@ public class CartTest {
         //setup
         Cart testCart = new Cart();
         Item testItem = new Item("banana", 2.99);
-        testCart.addItem(testItem);
-        testCart.addItem(testItem);
         double expected = 5.98;
         //execute
+        testCart.addItem(testItem);
+        testCart.addItem(testItem);
         double actual = testCart.getTotalPrice();
         //assert
         assertEquals(expected, actual);
@@ -58,13 +58,13 @@ public class CartTest {
         //setup
         Cart testCart = new Cart();
         Item testItem1 = new Item("banana", 2.99);
-        testCart.addItem(testItem1);
         Item testItem2 = new Item("apple", 3.99);
-        testCart.addItem(testItem2);
         Item testItem3 = new Item("orange", 4.99);
-        testCart.addItem(testItem3);
         String expected = "banana: 2.99, apple: 3.99, orange: 4.99";
         //execute
+        testCart.addItem(testItem1);
+        testCart.addItem(testItem2);
+        testCart.addItem(testItem3);
         String actual = testCart.itemizedList();
         //assert
         assertEquals(expected, actual);
@@ -117,11 +117,11 @@ public class CartTest {
         //setup
         Cart testCart = new Cart();
         Item testItem1 = new Item("banana", 2.99);
-        testCart.addItem(testItem1);
         Item testItem2 = new Item("apple", 1.99);
-        testCart.addItem(testItem2);
         ArrayList<Item> expected = new ArrayList<Item>();
         //execute
+        testCart.addItem(testItem1);
+        testCart.addItem(testItem2);
         ArrayList<Item> actual = testCart.onSaleItems();
         //assert
         assertArrayEquals(expected.toArray(), actual.toArray());
@@ -132,12 +132,12 @@ public class CartTest {
         //setup
         Cart testCart = new Cart();
         Item testItem1 = new Item("banana", 2.99);
-        testCart.addItem(testItem1);
         Item testItem2 = new Item("apple", 1.99);
-        testCart.addItem(testItem2);
         ArrayList<Item> expected = new ArrayList<Item>();
         expected.add(testItem1);
         //execute
+        testCart.addItem(testItem1);
+        testCart.addItem(testItem2);
         testItem1.toggleSale();
         ArrayList<Item> actual = testCart.onSaleItems();
         //assert
@@ -149,13 +149,13 @@ public class CartTest {
         //setup
         Cart testCart = new Cart();
         Item testItem1 = new Item("banana", 2.99);
-        testCart.addItem(testItem1);
         Item testItem2 = new Item("apple", 1.99);
-        testCart.addItem(testItem2);
         ArrayList<Item> expected = new ArrayList<Item>();
         expected.add(testItem1);
         expected.add(testItem2);
         //execute
+        testCart.addItem(testItem1);
+        testCart.addItem(testItem2);
         testItem1.toggleSale();
         testItem2.toggleSale();
         ArrayList<Item> actual = testCart.onSaleItems();
@@ -168,9 +168,9 @@ public class CartTest {
         //setup
         Cart testCart = new Cart();
         Item testItem1 = new Item("banana", 2.99);
-        testCart.addItem(testItem1);
         ArrayList<Item> expected = new ArrayList<Item>();
         //execute
+        testCart.addItem(testItem1);
         testItem1.toggleSale();
         testItem1.toggleSale();
         ArrayList<Item> actual = testCart.onSaleItems();
